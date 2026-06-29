@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Salim ♡ Jannat</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Hind+Siliguri:wght@500;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg1:#ffd6f3; --bg2:#ead6ff; --bg3:#ffc8dd;
+  --main:#9b59b6; --dark:#7d3c98; --pink:#ff4fc3;
+  --card:rgba(255,255,255,.84); --soft:#fff3fb;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  min-height:100vh;
+  font-family:"Hind Siliguri",sans-serif;
+  background:linear-gradient(-45deg,var(--bg1),var(--bg2),var(--bg3),#fff0fa);
+  background-size:350% 350%;
+  animation:bg 14s ease infinite;
+  display:flex;justify-content:center;align-items:center;
+  padding:14px;overflow-x:hidden;
+}
+body.night{--bg1:#1d1030;--bg2:#3b1b5a;--bg3:#7d3c98;--main:#e4c1ff;--dark:#fff;--pink:#ff79d8;--card:rgba(255,255,255,.13);--soft:rgba(255,255,255,.12)}
+body.rose{--bg1:#ffe0ec;--bg2:#ffb3d9;--bg3:#ffc6c7;--main:#d63384;--dark:#9d174d;--pink:#ff2f92}
+body.ocean{--bg1:#d7f8ff;--bg2:#b9e7ff;--bg3:#d9d2ff;--main:#4b6cb7;--dark:#274690;--pink:#5f7cff}
+@keyframes bg{50%{background-position:100% 50%}}
+
+.card{
+  width:100%;max-width:520px;
+  background:var(--card);
+  backdrop-filter:blur(20px);
+  border-radius:34px;
+  padding:24px 18px;
+  box-shadow:0 22px 60px rgba(80,20,110,.28);
+  border:2px solid rgba(255,255,255,.45);
+  overflow:hidden;position:relative;
+}
+h1{font-family:"Kalam",cursive;font-size:52px;text-align:center;color:var(--dark)}
+.subtitle{text-align:center;color:var(--main);font-size:23px;font-weight:900;margin-bottom:14px}
+.theme-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.theme-btn{
+  border:0;padding:8px 13px;border-radius:999px;background:white;
+  color:#7d3c98;font-weight:900;cursor:pointer;
+}
+.note,.box{
+  background:linear-gradient(135deg,#ffffff,var(--soft));
+  border-radius:24px;padding:16px 14px;margin:13px 0;
+  text-align:center;color:var(--dark);font-size:18px;font-weight:800;
+  box-shadow:0 9px 24px rgba(155,89,182,.13);
+  border:1px solid rgba(255,255,255,.5);
+}
+.title{color:var(--main);font-size:17px;font-weight:900;margin-bottom:10px}
+.start{font-size:19px;font-weight:900;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.item{background:rgba(255,255,255,.55);border-radius:18px;padding:10px 4px}
+.item b{display:block;font-size:25px;color:var(--dark)}
+.item span{color:var(--main);font-size:12px;font-weight:900}
+
+.tapBtn{
+  width:98px;height:98px;border-radius:50%;border:0;font-size:48px;color:white;
+  background:linear-gradient(135deg,#ff9eed,var(--pink));
+  box-shadow:0 12px 34px rgba(255,79,195,.45);
+  cursor:pointer;animation:beat 1.35s infinite;
+}
+@keyframes beat{50%{transform:scale(1.06)}}
+.counter{margin-top:12px;font-size:22px;font-weight:900;color:var(--main)}
+.counter span{color:var(--pink);font-size:32px}
+
+.ecg-wrap{
+  height:105px;
+  background:#11131c;
+  border-radius:22px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:inset 0 0 18px rgba(0,0,0,.65);
+}
+.ecg-wrap::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size:22px 22px;
+}
+.ecg-svg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
+.ecg-line{
+  fill:none;
+  stroke:#ff4fc3;
+  stroke-width:4.5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  filter:drop-shadow(0 0 8px #ff4fc3);
+}
+.ecg-glow{
+  fill:none;
+  stroke:#ff4fc3;
+  stroke-width:10;
+  opacity:.18;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.ecg-dot{
+  position:absolute;
+  width:12px;
+  height:12px;
+  background:#ff4fc3;
+  border-radius:50%;
+  box-shadow:0 0 16px #ff4fc3;
+  transform:translate(-50%,-50%);
+}
+.bpm{
+  margin-top:10px;
+  font-size:34px;
+  font-weight:900;
+  color:var(--pink);
+}
+.bpm small{
+  font-size:15px;
+  color:var(--main);
+}
+
+.btn{
+  border:0;padding:12px 20px;border-radius:999px;
+  background:linear-gradient(135deg,var(--main),var(--pink));
+  color:white;font-size:16px;font-weight:900;cursor:pointer;
+}
+.letter{
+  display:none;margin-top:14px;background:white;padding:16px;border-radius:22px;
+  color:#7d3c98;line-height:1.8;font-weight:800;
+}
+footer{text-align:center;margin-top:22px;font-size:18px;font-weight:900;color:var(--main)}
+footer span{color:var(--dark)}
+.fly,.float{position:fixed;pointer-events:none;z-index:99}
+.fly{animation:fly 2.2s ease-out forwards}
+.float{bottom:-25px;animation:float 7s linear forwards;z-index:1}
+@keyframes fly{to{transform:translateY(-115vh) rotate(360deg) scale(1.45);opacity:0}}
+@keyframes float{to{transform:translateY(-105vh) rotate(300deg);opacity:0}}
+
+.loading{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,.7);display:flex;justify-content:center;align-items:center;
+  z-index:999;color:white;font-size:24px;font-weight:900;
+}
+.loading.hide{display:none}
+
+@media(max-width:430px){
+  h1{font-size:44px}
+  .subtitle{font-size:21px}
+  .note{font-size:17px}
+  .item b{font-size:22px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="loading" id="loading">⏳ লোড হচ্ছে...</div>
+
+<div class="card">
+  <h1>Jannat ♡</h1>
+  <div class="subtitle">আমার পুকি বেবি 🧸💕</div>
+
+  <div class="theme-row">
+    <button class="theme-btn" onclick="setTheme('')">🌸 Pink</button>
+    <button class="theme-btn" onclick="setTheme('night')">🌙 Night</button>
+    <button class="theme-btn" onclick="setTheme('rose')">🌹 Rose</button>
+    <button class="theme-btn" onclick="setTheme('ocean')">💎 Ocean</button>
+  </div>
+
+  <div class="note" id="msg">💖 তুমি আমার পৃথিবীর সবচেয়ে সুন্দর অনুভূতি।</div>
+  <div class="note">🌙 Jannat — আমার শান্তির ঠিকানা ✨</div>
+  <div class="note">🌸 তোমার হাসিটাই আমার দিনের আলো ♡</div>
+
+  <div class="box">
+    <div class="title">আমাদের প্রথম কথা হয়েছিলো ♡</div>
+    <div class="start">১১ অক্টোবর ২০২৫<br>সকাল ৯:৩০ মিনিটে</div>
+
+    <div class="title" style="margin-top:14px">তোমাকে ভালোবাসি আজ পর্যন্ত ⏱️</div>
+    <div class="grid">
+      <div class="item"><b id="d">0</b><span>দিন</span></div>
+      <div class="item"><b id="h">0</b><span>ঘণ্টা</span></div>
+      <div class="item"><b id="m">0</b><span>মিনিট</span></div>
+      <div class="item"><b id="s">0</b><span>সেকেন্ড</span></div>
+    </div>
+  </div>
+
+  <div class="box">
+    <button class="tapBtn" id="heartBtn">💖</button>
+    <div class="counter">আমাদের মোট Heart: <span id="heartCount">0</span> টা</div>
+    <div style="font-size:13px;color:var(--main);margin-top:8px">
+      সর্বশেষ আপডেট: <span id="lastUpdate">-</span>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="title">Live Love Heartbeat Meter 💗</div>
+
+    <div class="ecg-wrap" id="ecgBox">
+      <svg class="ecg-svg" viewBox="0 0 520 105" preserveAspectRatio="none">
+        <polyline id="ecgGlow" class="ecg-glow" points=""></polyline>
+        <polyline id="ecgLine" class="ecg-line" points=""></polyline>
+      </svg>
+      <div class="ecg-dot" id="ecgDot"></div>
+    </div>
+
+    <div class="bpm"><span id="bpm">100</span> <small>BPM Love Signal</small></div>
+  </div>
+
+  <div class="box">
+    <div class="title">Live Clock 🕒</div>
+    <div id="clock" style="font-size:30px;font-weight:900;color:var(--dark)"></div>
+    <div id="date" style="color:var(--main);font-weight:800;margin-top:5px"></div>
+  </div>
+
+  <div class="box">
+    <button class="btn" onclick="toggleLetter()">💌 Read My Letter</button>
+    <div class="letter" id="letter">
+      Jannat, তুমি আমার জীবনের সবচেয়ে সুন্দর অধ্যায়।  
+      তোমার হাসি, তোমার কথা, তোমার ছোট ছোট অভিমান—সবকিছুই আমার কাছে অনেক প্রিয়।  
+      তুমি থাকলেই আমার পৃথিবীটা অনেক সুন্দর লাগে। ♡
+    </div>
+  </div>
+
+  <footer>
+    Made with ∞ Love <br>
+    By <span>Salim</span> For <span>Jannat</span> 🧸💕
+  </footer>
+</div>
+
+<script>
+// ===== GITHUB CONFIGURATION =====
+const GITHUB_CONFIG = {
+  owner: 'your-username',        // 👈 আপনার ইউজারনেম দিন
+  repo: 'your-repo-name',        // 👈 আপনার রিপো নাম দিন
+  path: 'data.json',
+  token: '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'  // 👈 টোকেন বসানো হয়েছে
+};
+
+// ===== GITHUB API FUNCTIONS =====
+async function getGitHubData() {
+  try {
+    const url = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${GITHUB_CONFIG.path}`;
+    const response = await fetch(url, {
+      headers: {
+        'Authorization': `token ${GITHUB_CONFIG.token}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    });
+    
+    if (!response.ok) throw new Error('Failed to fetch data');
+    const data = await response.json();
+    const content = JSON.parse(atob(data.content));
+    return { data: content, sha: data.sha };
+  } catch (error) {
+    console.error('Error reading data:', error);
+    return null;
+  }
+}
+
+async function updateGitHubData(newData) {
+  try {
+    const current = await getGitHubData();
+    const sha = current ? current.sha : null;
+    
+    const url = `https://api.github.com/repos/${GITHUB_CONFIG.owner}/${GITHUB_CONFIG.repo}/contents/${GITHUB_CONFIG.path}`;
+    const content = btoa(JSON.stringify(newData, null, 2));
+    
+    const body = {
+      message: `❤️ Heart count updated to ${newData.totalHearts}`,
+      content: content,
+      sha: sha
+    };
+    
+    const response = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `token ${GITHUB_CONFIG.token}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/vnd.github.v3+json'
+      },
+      body: JSON.stringify(body)
+    });
+    
+    if (!response.ok) throw new Error('Failed to update data');
+    return true;
+  } catch (error) {
+    console.error('Error updating data:', error);
+    return false;
+  }
+}
+
+// ===== INITIALIZE DATA =====
+let heartData = { totalHearts: 0, lastUpdated: null };
+let isUpdating = false;
+let pendingHeart = false;
+
+async function loadData() {
+  const loading = document.getElementById('loading');
+  loading.classList.remove('hide');
+  
+  const result = await getGitHubData();
+  if (result && result.data) {
+    heartData = result.data;
+    document.getElementById('heartCount').textContent = heartData.totalHearts || 0;
+    if (heartData.lastUpdated) {
+      document.getElementById('lastUpdate').textContent = new Date(heartData.lastUpdated).toLocaleString('bn-BD');
+    }
+  } else {
+    heartData = { totalHearts: 0, lastUpdated: new Date().toISOString() };
+    await updateGitHubData(heartData);
+  }
+  
+  loading.classList.add('hide');
+}
+
+async function saveHeart() {
+  if (isUpdating) {
+    pendingHeart = true;
+    return;
+  }
+  
+  isUpdating = true;
+  heartData.totalHearts = (heartData.totalHearts || 0) + 1;
+  heartData.lastUpdated = new Date().toISOString();
+  
+  const success = await updateGitHubData(heartData);
+  if (success) {
+    document.getElementById('heartCount').textContent = heartData.totalHearts;
+    document.getElementById('lastUpdate').textContent = new Date(heartData.lastUpdated).toLocaleString('bn-BD');
+  } else {
+    heartData.totalHearts--;
+  }
+  
+  isUpdating = false;
+  
+  if (pendingHeart) {
+    pendingHeart = false;
+    saveHeart();
+  }
+}
+
+loadData();
+
+// ===== THEME =====
+function setTheme(theme){
+  document.body.className = theme;
+  localStorage.setItem("salim_jannat_theme", theme);
+}
+setTheme(localStorage.getItem("salim_jannat_theme") || "");
+
+// ===== TIMER =====
+const firstTalk = new Date("2025-10-11T09:30:00");
+
+function updateTimer(){
+  let diff = new Date() - firstTalk;
+  if(diff < 0) diff = 0;
+
+  const d = Math.floor(diff / 86400000);
+  diff %= 86400000;
+  const h = Math.floor(diff / 3600000);
+  diff %= 3600000;
+  const m = Math.floor(diff / 60000);
+  diff %= 60000;
+  const s = Math.floor(diff / 1000);
+
+  document.getElementById("d").textContent = d;
+  document.getElementById("h").textContent = h;
+  document.getElementById("m").textContent = m;
+  document.getElementById("s").textContent = s;
+}
+
+// ===== CLOCK =====
+function updateClock(){
+  const now = new Date();
+  document.getElementById("clock").textContent = now.toLocaleTimeString("bn-BD");
+  document.getElementById("date").textContent = now.toLocaleDateString("bn-BD",{
+    weekday:"long",year:"numeric",month:"long",day:"numeric"
+  });
+}
+
+updateTimer();
+updateClock();
+setInterval(updateTimer,1000);
+setInterval(updateClock,1000);
+
+// ===== MESSAGES =====
+const messages = [
+  "💖 তুমি আমার পৃথিবীর সবচেয়ে সুন্দর অনুভূতি।",
+  "🌸 তোমার হাসিটাই আমার সুখ।",
+  "🧸 Jannat, তুমি আমার শান্তির ঠিকানা।",
+  "🌙 তুমি থাকলেই সবকিছু সুন্দর লাগে।",
+  "💕 Forever You & Me ♡",
+  "✨ তুমি আমার হৃদয়ের সবচেয়ে প্রিয় মানুষ।"
+];
+
+let msgIndex = 0;
+setInterval(()=>{
+  msgIndex = (msgIndex + 1) % messages.length;
+  document.getElementById("msg").textContent = messages[msgIndex];
+},3500);
+
+// ===== HEART BUTTON =====
+const heartBtn = document.getElementById("heartBtn");
+
+heartBtn.addEventListener("click", ()=>{
+  saveHeart();
+  
+  if(navigator.vibrate) navigator.vibrate(60);
+
+  for(let i = 0; i < 14; i++){
+    const e = document.createElement("div");
+    e.className = "fly";
+    e.textContent = ["💖","💕","💗","🧸","🌸","🎀","✨"][Math.floor(Math.random() * 7)];
+    e.style.left = Math.random() * 100 + "vw";
+    e.style.top = "82vh";
+    e.style.fontSize = (22 + Math.random() * 24) + "px";
+    document.body.appendChild(e);
+    setTimeout(() => e.remove(), 2300);
+  }
+});
+
+// ===== LETTER =====
+function toggleLetter(){
+  const letter = document.getElementById("letter");
+  letter.style.display = letter.style.display === "block" ? "none" : "block";
+}
+
+// ===== FLOATING EMOJIS =====
+setInterval(()=>{
+  const f = document.createElement("div");
+  f.className = "float";
+  f.textContent = ["💖","💕","🌸","✨","🎀"][Math.floor(Math.random() * 5)];
+  f.style.left = Math.random() * 100 + "vw";
+  f.style.fontSize = (16 + Math.random() * 16) + "px";
+  f.style.opacity = .65;
+  document.body.appendChild(f);
+  setTimeout(() => f.remove(), 7000);
+}, 1400);
+
+// ===== ECG =====
+const ecgLine = document.getElementById("ecgLine");
+const ecgGlow = document.getElementById("ecgGlow");
+const ecgDot = document.getElementById("ecgDot");
+const bpmText = document.getElementById("bpm");
+
+let points = [];
+let x = 0;
+let t = 0;
+const width = 520;
+const height = 105;
+const base = 55;
+
+function heartbeatValue(t){
+  const beat = t % 70;
+
+  if(beat < 8) return base;
+  if(beat < 13) return base - 12;
+  if(beat < 18) return base + 22;
+  if(beat < 24) return base - 38;
+  if(beat < 31) return base + 8;
+  if(beat < 45) return base;
+  if(beat < 55) return base - 10;
+  if(beat < 65) return base + 7;
+  return base;
+}
+
+function animateECG(){
+  t++;
+  x += 3.2;
+
+  if(x > width){
+    x = 0;
+    points = [];
+  }
+
+  const y = heartbeatValue(t) + Math.sin(t * .25) * 1.5;
+  points.push(`${x.toFixed(1)},${y.toFixed(1)}`);
+
+  if(points.length > 180) points.shift();
+
+  const pointString = points.join(" ");
+  ecgLine.setAttribute("points", pointString);
+  ecgGlow.setAttribute("points", pointString);
+
+  ecgDot.style.left = (x / width * 100) + "%";
+  ecgDot.style.top = (y / height * 100) + "%";
+
+  if(t % 20 === 0){
+    bpmText.textContent = 96 + Math.floor(Math.random() * 12);
+  }
+
+  requestAnimationFrame(animateECG);
+}
+
+animateECG();
+
+// ===== AUTO REFRESH =====
+setInterval(async () => {
+  if (!isUpdating) {
+    const result = await getGitHubData();
+    if (result && result.data && result.data.totalHearts !== heartData.totalHearts) {
+      heartData = result.data;
+      document.getElementById('heartCount').textContent = heartData.totalHearts;
+      if (heartData.lastUpdated) {
+        document.getElementById('lastUpdate').textContent = new Date(heartData.lastUpdated).toLocaleString('bn-BD');
+      }
+    }
+  }
+}, 10000);
+</script>
+
+</body>
+</html>
